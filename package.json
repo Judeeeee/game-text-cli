@@ -1,0 +1,35 @@
+{
+  "name": "game-text-cli",
+  "version": "1.0.0",
+  "description": "Output hiragana text in game text style in Terminal.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "fix": "prettier --write '**/*.js' && eslint --fix '**/*.js'",
+    "lint": "prettier --check '**/*.js' && eslint '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Judeeeee/game-text-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "hiragana",
+    "game-text"
+  ],
+  "author": "judeee",
+  "bugs": {
+    "url": "https://github.com/Judeeeee/game-text-cli/issues"
+  },
+  "homepage": "https://github.com/Judeeeee/game-text-cli#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "jest": "^29.7.0",
+    "prettier": "3.2.5"
+  },
+  "bin": {
+    "gt": "./index.js"
+  }
+}
