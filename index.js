@@ -48,27 +48,28 @@ class DisplayText {
 }
 
 const display = async (input, output) => {
-  if (input != undefined) {
-    const displayText = new DisplayText(input);
-    const convertedText = await displayText.convert();
-    let fragmentIndex = 0;
-    let charIndex = 0;
-
-    while (fragmentIndex < convertedText.length) {
-      const fragment = convertedText[fragmentIndex];
-      if (charIndex < fragment.length) {
-        const char = fragment.charAt(charIndex);
-        output.write(char);
-        charIndex++;
-      } else {
-        output.write("\n");
-        fragmentIndex++;
-        charIndex = 0;
-      }
-      await setTimeout(200);
-    }
-  } else {
+  if (input === undefined) {
     output.write("引数に文を指定してください。");
+    return;
+  }
+
+  const displayText = new DisplayText(input);
+  const convertedText = await displayText.convert();
+  let fragmentIndex = 0;
+  let charIndex = 0;
+
+  while (fragmentIndex < convertedText.length) {
+    const fragment = convertedText[fragmentIndex];
+    if (charIndex < fragment.length) {
+      const char = fragment.charAt(charIndex);
+      output.write(char);
+      charIndex++;
+    } else {
+      output.write("\n");
+      fragmentIndex++;
+      charIndex = 0;
+    }
+    await setTimeout(200);
   }
 };
 
