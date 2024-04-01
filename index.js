@@ -7,14 +7,14 @@ class DisplayText {
   }
 
   async convert() {
-    const onlyHiraganaSentence = await this.ToHiragana(this.input);
-    const json = await this.ToJSON(onlyHiraganaSentence);
+    const onlyHiraganaSentence = await this.toHiragana(this.input);
+    const json = await this.toJson(onlyHiraganaSentence);
     const displayText = await this.format(json);
     const splitedText = displayText.split(/[、。 ]/);
     return splitedText;
   }
 
-  ToHiragana(input) {
+  toHiragana(input) {
     const resource = "https://labs.goo.ne.jp/api/hiragana";
     const options = {
       method: "POST",
@@ -32,7 +32,7 @@ class DisplayText {
     });
   }
 
-  ToJSON(onlyHiraganaSentence) {
+  toJson(onlyHiraganaSentence) {
     return new Promise((resolve) => {
       const json = onlyHiraganaSentence.json();
       resolve(json);
